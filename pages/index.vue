@@ -139,46 +139,28 @@
           <div class="mb-8 lg:mb-0 px-5 lg:px-8 w-full lg:w-1/2">
             <img
               v-lazy-load
-              :data-src="'/about-education.jpg'"
-              alt="Таргетолог Instagram / Facebook Анастасия Черепахина"
+              data-src="/about-education.jpg"
+              alt="Таргетолог в Instagram/Facebook Анастасия Черепахина"
               class="w-full"
             />
+
+            <noscript inline-template>
+              <img
+                src="/about-education.jpg"
+                alt="Таргетолог в Instagram/Facebook Анастасия Черепахина"
+                class="w-full"
+              />
+            </noscript>
           </div>
           <div
             class="lg:pl-8 w-full lg:w-1/2 text-center lg:text-left text-md lg:text-lg font-light flex flex-1 flex-col justify-center"
           >
             <p class="mb-7">{{ educationText[0] }}</p>
-            <p class="mb-7">{{ educationText[1] }}</p>
-            <p>
-              Сейчас я занимаюсь менторством таргетологов, с услугой можно
-              ознакомиться на
-              <app-blue-underline-link @click="$router.push('/education')"
-                >странице обучения</app-blue-underline-link
-              >. Также жду вас в своем
-              <analytics-link
-                route="Чат таргетологов"
-                :href="$store.getters['contacts/contacts'].telegramChat"
-                target="_blank"
-              >
-                <app-blue-underline-link
-                  >бесплатном telegram чате</app-blue-underline-link
-                >
-              </analytics-link>
-              для таргетологов.
-            </p>
+            <p>{{ educationText[1] }}</p>
           </div>
         </div>
       </div>
     </section>
-
-    <div class="container mb-14">
-      <app-title-with-button
-        :is-router="true"
-        title="Ознакомиться с обучающими программами"
-        link-title="Подробнее"
-        url="/education"
-      />
-    </div>
 
     <section
       v-if="$store.getters['cases/cases'].length > 0"
@@ -214,6 +196,8 @@ import AppFeatureWithIcon from '@/components/AppFeatureWithIcon'
 import CasesSlider from '@/components/CasesSlider'
 import ReviewsSection from '@/components/ReviewsSection'
 import ModalLidForm from '@/components/ModalLidForm'
+
+const description = 'Ищете таргетолога для настройки рекламы в Instagram/Facebook? Я выстрою оптимальную рекламную кампанию для вашего бизнеса и запущу таргетированную рекламу.'
 
 export default {
   components: {
@@ -255,14 +239,14 @@ export default {
 
   head() {
     return {
-      title: this.title,
+      title: 'Главная',
       meta: [
         {
           hid: 'description',
           name: 'description',
-          contents:
-            'Ищете таргетолога для настройки рекламы в Instagram/Facebook? Я выстрою оптимальную рекламную кампанию для вашего бизнеса и запущу таргетированную рекламу.',
+          contents: description
         },
+        { property: 'og:description', content: description },
         {
           hid: 'og:title',
           property: 'og:title',
@@ -271,7 +255,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          contents: 'meta-image.png'
+          contents: '/meta-image.png'
         }
       ],
     }

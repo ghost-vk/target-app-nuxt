@@ -51,7 +51,7 @@
         />
 
         <p class="pl-2 text-xs w-full">
-          Даю свое согласие на <a href="/privacy.html" target="_blank" class="underline">обработку персональных данных</a>
+          Даю свое согласие на <a href='/static/docs/privacy.html' target="_blank" class="underline">обработку персональных данных</a>
         </p>
       </div>
 

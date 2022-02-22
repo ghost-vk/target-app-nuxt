@@ -1,7 +1,8 @@
-import { asyncLoadScript } from '@/utils/async-load-script.util'
-import { logObject } from '@/utils/log-object.util'
+import { asyncLoadScript } from '@/utils/async-load-script'
+import Debug from 'debug'
 
-const debug = true
+const debug = new Debug('plugin')
+
 const standardEvents = [
   'addpaymentinfo',
   'addtocart',
@@ -25,10 +26,7 @@ const standardEvents = [
 
 const _fbqEnabled = () => {
   if (typeof window.fbq === 'undefined') {
-    if (debug) {
-      console.log('[Vue Facebook Pixel]: `window.fbq` is not defined, skipping')
-    }
-
+    debug('[Vue Facebook Pixel]: `window.fbq` is not defined, skipping')
     return false
   }
 
@@ -36,13 +34,11 @@ const _fbqEnabled = () => {
 }
 
 const query = (...args) => {
-  if (!_fbqEnabled()) return
-
-  if (debug) {
-    console.groupCollapsed(`[Vue Facebook Pixel] Raw query`)
-    console.log(`With data: `, ...args)
-    console.groupEnd()
+  if (!_fbqEnabled()) {
+    return
   }
+
+  debug(`[Vue Facebook Pixel] Raw query\nWith data: \n%O`, ...args)
 
   window.fbq(...args)
 }
@@ -50,12 +46,8 @@ const query = (...args) => {
 const event = (name, data = {}) => {
   if (!_fbqEnabled()) return
 
-  if (debug) {
-    console.groupCollapsed(`[Vue Facebook Pixel] Track event "${name}"`)
-    console.log('With data:')
-    logObject(data)
-    console.groupEnd()
-  }
+  debug(`[Vue Facebook Pixel] Track event "%s"`, name)
+  debug(`With data:\n%O`, data)
 
   if (!standardEvents.includes(name.toLowerCase())) {
     query('trackCustom', name, data)
@@ -87,19 +79,18 @@ const init = async (appId) => {
 
     await asyncLoadScript('https://connect.facebook.net/en_US/fbevents.js')
 
-    if (debug) {
-      console.log(`[Vue Facebook Pixel] Initializing app ${appId}`)
-    }
+    debug(`[Vue Facebook Pixel] Initializing app %s`, appId)
 
     query('init', appId)
     event('PageView')
   } catch (e) {
-    throw new Error(`An error occurs when try to init Facebook Pixel: ${e}`)
+    debug(`An error occurs when try to init Facebook Pixel:\n%O`, e)
+    throw new Error(e)
   }
 }
 
 export default (context, inject) => {
-  inject('fbq', (methodName, ) => {
+  inject('fbq', (methodName) => {
     switch (methodName) {
       case 'init': {
         return async (appId) => {

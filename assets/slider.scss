@@ -1,10 +1,13 @@
+@import "./swiper/main.scss";
+
 :root {
   --swiper-theme-color: rgb(139, 92, 246) !important;
   --swiper-navigation-size: 18px !important;
 }
 
-.swiper-button-next, .swiper-button-prev {
-  right: 28px!important;
+.swiper-button-next,
+.swiper-button-prev {
+  right: 28px !important;
   padding: 15px;
   box-shadow: 0 0 12px rgb(0 0 0 / 10%);
   background: #fff;
@@ -12,33 +15,35 @@
   transition: opacity 0.3s ease;
   transform: translateY(-50%);
   border-radius: 50%;
-  width: 48px!important;
-  height: 48px!important;
-  z-index: 20!important;
-  color: rgb(60, 57, 65)!important;
+  width: 48px !important;
+  height: 48px !important;
+  z-index: 20 !important;
+  color: rgb(60, 57, 65) !important;
 }
 
 .swiper-button-prev {
-  left: 28px!important;
+  left: 28px !important;
   right: auto;
 }
 
-.swiper-button-next:hover,  .swiper-button-prev:hover{
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
   opacity: 1;
 }
 
-.swiper-button-next:hover::after, .swiper-button-prev:hover::after {
-  color: rgb(139, 92, 246)!important;
+.swiper-button-next:hover::after,
+.swiper-button-prev:hover::after {
+  color: rgb(139, 92, 246) !important;
 }
 
 .swiper-button-disabled:hover::after {
-  color: rgb(60, 57, 65)!important;
+  color: rgb(60, 57, 65) !important;
 }
 
 .swiper-button-disabled {
-  opacity: 0.45!important;
+  opacity: 0.45 !important;
   background: #ece9e9;
-  pointer-events: auto!important;
+  pointer-events: auto !important;
 }
 
 @media (max-width: 1024px) {

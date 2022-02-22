@@ -1,5 +1,5 @@
 import { campaignBudgetCalculatorSchema } from '@/validation/yup-config'
-import currencyFilter from '@/filters/currency.filter'
+import { currencyFilter } from '@/filters/currency'
 import {
   TOGGLE_MODAL,
   UPDATE_ORDER_QUANTITY,

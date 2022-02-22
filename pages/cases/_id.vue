@@ -41,7 +41,10 @@
       </div>
     </div>
 
-    <CasePageResults v-if="displayValues.case_stats" :stats="displayValues.case_stats" />
+    <CasePageResults
+      v-if="displayValues.case_stats"
+      :stats="displayValues.case_stats"
+    />
 
     <div v-else>
       <div v-if="displayValues.thumbnail">
@@ -68,12 +71,7 @@
         link-title="Оставить заявку"
         :is-always-column="true"
         :is-event="true"
-        @handle="
-          $store.dispatch('lead/showDialog', {
-            source: `Кейс (${displayValues.title})`,
-            shouldCallback: true,
-          })
-        "
+        @handle="showDialog"
       />
     </div>
 
@@ -82,23 +80,53 @@
 </template>
 
 <script>
-import { dateFilter } from '@/filters/date.filter'
+import { date } from '@/filters/date'
 import CasePageResults from '@/components/CasePageResults'
 
 export default {
   components: {
-    CasePageResults
+    CasePageResults,
   },
 
   validate({ params }) {
     return /^\d+$/.test(params.id)
   },
 
+  data: () => ({
+    shouldRedirect404: false
+  }),
+
   async fetch() {
     await this.$store.dispatch('post/loadPost', this.$route.params.id)
 
     if (!this.displayValues.title) {
-      this.$router.push('/404')
+      this.shouldRedirect404 = true
+    }
+  },
+
+  head() {
+    return {
+      title: this.displayValues.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          contents: this.displayValues.subtitle,
+        },
+        {
+          property: 'og:description', content: this.displayValues.subtitle
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          contents: this.displayValues.title
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          contents: this.displayValues.thumbnail
+        }
+      ],
     }
   },
 
@@ -108,8 +136,21 @@ export default {
     },
   },
 
+  mounted() {
+    if (this.shouldRedirect404) {
+      this.$router.push('/404')
+    }
+  },
+
   methods: {
-    dateFilter
-  }
+    dateFilter: date,
+
+    showDialog() {
+      this.$store.dispatch('lead/showDialog', {
+        source: `Кейс (${this.displayValues.title})`,
+        shouldCallback: true,
+      })
+    }
+  },
 }
 </script>

@@ -8,8 +8,6 @@ import {
   EffectFade,
 } from 'swiper/js/swiper.esm'
 import getAwesomeSwiper from 'vue-awesome-swiper/dist/exporter'
-import 'swiper/css/swiper.min.css'
-import 'swiper/components/effect-fade/effect-fade.scss'
 
 SwiperClass.use([Pagination, Mousewheel, Navigation, Autoplay, EffectFade])
 

@@ -58,3 +58,28 @@
   max-height: 0;
 }
 
+.shine {
+  overflow: hidden;
+  position: relative;
+}
+
+.shine:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  transition: all 1.4s ease;
+  left: -200%;
+  width: 200%;
+  height: 100%;
+  transform: skewX(-20deg);
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.9),
+    transparent
+  );
+}
+
+.shine-animated:after {
+  left: 200%;
+}

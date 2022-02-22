@@ -1,7 +1,7 @@
 <template>
-  <section class="overflow-x-hidden pt-16">
+  <section class="overflow-x-hidden pt-16 pb-5">
     <div class="container relative">
-      <div id="at_price" class="relative mb-28">
+      <div id="at_price" class="relative">
         <app-heading-bubble title="Оставьте заявку" class="mb-14 md:mb-28" />
 
         <div class="text-md md:text-lg tracking-wide font-light mb-16">

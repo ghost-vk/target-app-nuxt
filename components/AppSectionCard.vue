@@ -41,14 +41,14 @@
 
       <div v-if="button.length > 0" class="pt-4 w-full">
         <client-only>
-          <intersect root-margin='-10% 0px -10% 0px' @enter="btnClass = 'btn-shine'">
+          <intersect root-margin='-10% 0px -10% 0px' @enter="btnClass = 'shine-animated'">
             <span></span>
           </intersect>
         </client-only>
 
         <button
           type="button"
-          class="btn relative overflow-hidden w-full bg-purple-700 text-white shadow text-lg font-semibold rounded-lg px-5 py-2"
+          class="shine w-full bg-purple-700 text-white shadow text-lg font-semibold rounded-lg px-5 py-2"
           :class="btnClass"
           @click="$emit('button-click')"
         >
@@ -81,30 +81,3 @@ export default {
   }),
 }
 </script>
-
-<style lang="scss" scoped>
-.btn {
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    transition: all 1.4s ease;
-    left: -200%;
-    width: 200%;
-    height: 100%;
-    transform: skewX(-20deg);
-    background-image: linear-gradient(
-      to right,
-      transparent,
-      rgba(#fff, 0.9),
-      transparent
-    );
-  }
-}
-
-.btn-shine {
-  &:after {
-    left: 200%;
-  }
-}
-</style>

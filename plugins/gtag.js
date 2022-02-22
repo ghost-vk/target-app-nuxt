@@ -1,12 +1,11 @@
-import { asyncLoadScript } from '@/utils/async-load-script.util'
+import { asyncLoadScript } from '@/utils/async-load-script'
+import Debug from 'debug'
 
-const debug = true
+const debug = new Debug('plugin')
 
 const _gtagEnabled = () => {
   if (typeof window.gtag === 'undefined') {
-    if (debug) {
-      console.log('[Vue Gtag]: `window.gtag` is not defined, skipping')
-    }
+    debug('[Vue Gtag]: `window.gtag` is not defined, skipping')
 
     return false
   }
@@ -15,20 +14,20 @@ const _gtagEnabled = () => {
 }
 
 const query = (...args) => {
-  if (!_gtagEnabled()) return
-
-  if (debug) {
-    console.groupCollapsed(`[Vue Gtag] Raw query`)
-    console.log(`With data: `, ...args)
-    console.groupEnd()
+  if (!_gtagEnabled()) {
+    return
   }
+
+  debug(`[Vue Gtag] Raw query\nWith data: %O`, ...args)
 
   window.gtag(...args)
 }
 
 const init = async (appId) => {
   try {
-    if (window.gtag) return
+    if (window.gtag) {
+      return
+    }
 
     window.dataLayer = window.dataLayer || []
     window.gtag = function () {
@@ -43,9 +42,7 @@ const init = async (appId) => {
       `https://www.googletagmanager.com/gtag/js?id=${appId}`
     )
 
-    if (debug) {
-      console.log(`[Vue Gtag] Initializing app ${appId}`)
-    }
+    debug('[Vue Gtag] Initializing app %s', appId)
 
     window.gtag('config', appId)
     query('page_view')

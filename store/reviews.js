@@ -50,7 +50,7 @@ export const mutations = {
 }
 
 export const actions = {
-  async load({ commit, state }, options) {
+  async load({ commit, state, dispatch }, options) {
     try {
       if (!options) {
         return
@@ -70,7 +70,6 @@ export const actions = {
 
       return true
     } catch (e) {
-      // todo notify
       commit(UPDATE_REVIEWS_STATUS, false)
     }
   },

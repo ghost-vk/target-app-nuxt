@@ -42,7 +42,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import PostsSliderItem from '@/components/PostsSliderItem.vue'
-import { dateFilter } from '@/filters/date.filter'
+import { date } from '@/filters/date'
 
 const screenWidth = process.client ? window.innerWidth : 1025
 
@@ -76,7 +76,7 @@ export default {
   },
 
   methods: {
-    dateFilter,
+    dateFilter: date,
     animate() {
       if (!this.isMounted || this.isVisible) {
         return

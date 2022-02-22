@@ -14,7 +14,16 @@ const expandComponent = (match, baseUrl) => {
   if (component.name === 'image') {
     component.style = component.style ? component.style : ''
     component.alt = component.alt ? component.alt : ''
-    return `<img class="rounded w-full mx-auto my-4" style="${component.style}" src="${baseUrl}${component.src}" alt="${component.alt}" loading="lazy">`
+
+    return `
+      <img
+        class="rounded w-full mx-auto my-4"
+        style="${component.style}"
+        src="${baseUrl}${component.src}"
+        alt="${component.alt}"
+        loading="lazy"
+      >
+    `
   }
 
   return ''
@@ -34,7 +43,5 @@ export const postContentFilter = (content, baseUrl = '') => {
     .replace(/<div>/g, '<div class="mb-3">')
     .replace(/<ol>/g, '<ol class="list-decimal list-inside">')
     .replace(/<ul>/g, '<ul class="list-disc list-inside mb-3">')
-    .replace(/\{{.+?\}}/gm, (val) => {
-      return expandComponent(val, baseUrl)
-    })
+    .replace(/\{{.+?\}}/gm, (val) => expandComponent(val, baseUrl))
 }

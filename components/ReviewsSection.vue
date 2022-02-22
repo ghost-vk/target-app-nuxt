@@ -1,6 +1,6 @@
 <template>
-  <section id="at_reviews" class="pb-8 md:pb-16 overflow-hidden">
-    <div class="container">
+  <section id="at_reviews" class="overflow-hidden pt-28 pb-8 md:pb-16">
+    <div v-if="reviews.length > 0" class="container">
       <app-heading-third title="Отзывы" />
       <div class="w-full lg:px-24">
         <ReviewsSectionButtons

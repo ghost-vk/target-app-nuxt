@@ -3,7 +3,6 @@
     class="
       w-full
       focus:outline-none
-      bg-transparent
       p-3
       text-center
       bg-purple-400
@@ -15,6 +14,7 @@
       font-semibold
     "
     :class="isDisabled ? 'opacity-60 cursor-not-allowed' : ''"
+    @click="$emit('click')"
   >
     {{ title }}
   </button>

@@ -24,8 +24,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { dateFilter } from '@/filters/date.filter'
+import { date } from '@/filters/date'
 import ArchivePostItem from '@/components/ArchivePostItem'
+
+const description =
+  'В поисках таргетолога? Тогда ты по адресу. Здесь можно посмотреть мои кейсы по настройке таргетированной рекламы в Instagram/Facebook.'
 
 export default {
   components: {
@@ -42,13 +45,37 @@ export default {
     await this.$store.dispatch('cases/loadCases', 150)
   },
 
+  head() {
+    return {
+      title: 'Кейсы',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          contents: description,
+        },
+        { property: 'og:description', content: description },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          contents: 'Кейсы по настройке рекламы',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          contents: 'meta-image.png',
+        },
+      ],
+    }
+  },
+
   computed: mapGetters({
     cases: 'cases/cases',
     postsLoadingStatus: 'cases/status',
   }),
 
   methods: {
-    dateFilter,
+    dateFilter: date,
   },
 }
 </script>

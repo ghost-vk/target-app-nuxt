@@ -3,7 +3,7 @@ import {
   isValidPhoneNumber,
 } from 'libphonenumber-js'
 import { lidFormSchema } from '@/validation/yup-config'
-import strLenFilter from '@/filters/strLen.filter'
+import { cutStringByLength } from '@/filters/string'
 import {
   UPDATE_CONTACT_TYPE_BUTTONS,
   UPDATE_CHECK,
@@ -22,6 +22,7 @@ import {
 
 export const state = () => ({
   isShown: false,
+
   values: {
     name: '',
     phone: '',
@@ -31,11 +32,13 @@ export const state = () => ({
     countryCode: 'RU',
     shouldCallback: true,
   },
+
   errors: {
     name: '',
     phone: '',
     check: '',
   },
+
   contactTypeButtons: [
     {
       title: "What's App",
@@ -58,10 +61,12 @@ export const state = () => ({
       selected: false,
     },
   ],
+
   notification: {
     isShown: false,
     sendingFormStatus: true,
   },
+
   loading: false,
 })
 
@@ -117,7 +122,7 @@ export const actions = {
     commit(SHOW_MODAL)
 
     const source = typeof options === 'string' ? options : options.source
-    commit(UPDATE_LID_SOURCE, strLenFilter(source, 255))
+    commit(UPDATE_LID_SOURCE, cutStringByLength(source, 255))
 
     this.$fbq('event')('ViewLeadForm', {
       source: options.source || 'Without source',

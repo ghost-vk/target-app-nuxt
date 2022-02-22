@@ -1,4 +1,4 @@
-import camelToDashFilter from '@/filters/camelToDash.filter'
+import { camelToDash } from '@/filters/string'
 
 const prefix = 'target_lead_'
 
@@ -11,7 +11,7 @@ const getItemFromLocalStorage = (itemName, prefix = 'target_lead_') => {
 
   let item = window.localStorage.getItem(fullName)
   if (!item) {
-    item = item ? window.localStorage.getItem(camelToDashFilter(fullName)) : ''
+    item = item ? window.localStorage.getItem(camelToDash(fullName)) : ''
   }
 
   return item
@@ -23,7 +23,7 @@ const setItemToLocalStorage = (itemName, itemValue, options) => {
   }
 
   const prefix = options.prefix ? options.prefix : ''
-  const fullName = camelToDashFilter(prefix + itemName)
+  const fullName = camelToDash(prefix + itemName)
 
   const expires = options.expires ? options.expires : 30
 
@@ -45,7 +45,7 @@ export const mutations = {
     data.forEach((r) => {
       if (Object.keys(state.lead).includes(r.name) && r.val) {
         state.lead[r.name] = r.val
-        setItemToLocalStorage(camelToDashFilter(r.name), r.val, { prefix, expires: 60 })
+        setItemToLocalStorage(camelToDash(r.name), r.val, { prefix, expires: 60 })
       }
     })
   },

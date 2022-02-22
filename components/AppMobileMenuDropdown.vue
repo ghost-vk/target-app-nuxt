@@ -23,10 +23,11 @@
         class="flex flex-col items-center justify-center text-center text-sm mt-2"
       >
         <span
-          @click="$router.push('/work-process-with-client')"
           class="text-gray-300 hover:text-white transition-colors cursor-pointer"
-          >Чек-лист "Как работать с клиентами"</span
+          @click="$router.push('/products/work-process-with-client')"
         >
+          Чек-лист "Как работать с клиентами"
+        </span>
       </div>
     </transition>
   </div>

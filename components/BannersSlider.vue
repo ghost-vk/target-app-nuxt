@@ -23,7 +23,7 @@
 
           <div class="swiper-wrapper">
             <div v-for="b in banners" :key="b.url" class="swiper-slide">
-              <BannerSliderItem :banner="b" />
+              <BannersSliderItem :banner="b" />
             </div>
           </div>
 
@@ -42,7 +42,7 @@
 
 <script>
 import { directive } from 'vue-awesome-swiper'
-import BannerSliderItem from '@/components/BannerSliderItem'
+import BannersSliderItem from '@/components/BannersSliderItem'
 
 const screen = process.client ? window.innerWidth : 1025
 
@@ -54,7 +54,7 @@ export default {
   },
 
   components: {
-    BannerSliderItem,
+    BannersSliderItem,
   },
 
   data() {

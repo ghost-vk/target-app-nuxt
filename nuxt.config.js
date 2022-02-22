@@ -1,8 +1,24 @@
+// import fs from 'fs'
 import { directive } from 'v-aspect-ratio/dist/v-aspect-ratio.ssr.esm'
 
-const defaultDescription = `Ищете таргетолога для настройки рекламы в Instagram/Facebook? Я выстрою оптимальную рекламную кампанию для вашего бизнеса и запущу таргетированную рекламу.`
+// const server =
+//   process.env.NODE_ENV === 'production'
+//     ? {
+//         https: {
+//           key: fs.readFileSync('/etc/letsencrypt/live/anastasi-target.ru/privkey.pem'),
+//           cert: fs.readFileSync('/etc/letsencrypt/live/anastasi-target.ru/cert.pem'),
+//           ca: fs.readFileSync('/etc/letsencrypt/live/anastasi-target.ru/chain.pem'),
+//         },
+//       }
+//     : {}
+
+const server = {}
+
+server.port = process.env.PORT
 
 export default {
+  server: server,
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s | AnastasiTarget',
@@ -13,15 +29,9 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'description', content: defaultDescription },
-      { property: 'og:description', content: defaultDescription },
       {
         property: 'og:site_name',
         content: 'Эксперт таргетолог в Instagram | Facebook',
-      },
-      {
-        property: 'og:image',
-        content: '/meta-image.png',
       },
       { property: 'og:locale', content: 'ru_RU' },
       { property: 'og:type', content: 'website' },
@@ -33,7 +43,7 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/assets/animation.css',
-    '~/assets/slider.css',
+    '~/assets/slider.scss',
     '~/assets/v-tooltip.scss',
   ],
 
@@ -62,6 +72,7 @@ export default {
     '@nuxt-hero-icons/outline/nuxt',
     '@nuxt-hero-icons/solid/nuxt',
     '@nuxtjs/device',
+    '@nuxtjs/tailwindcss',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -88,6 +99,11 @@ export default {
         'aspect-ratio': directive,
       },
     },
+  },
+
+  tailwindcss: {
+    cssPath: '~/assets/tailwind.css',
+    configPath: '~/tailwind.config.js',
   },
 
   loading: {

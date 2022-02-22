@@ -40,6 +40,8 @@ import ReviewsSection from '@/components/ReviewsSection'
 import FAQ from '@/components/FAQ'
 import ModalLidForm from '@/components/ModalLidForm'
 
+const description = 'Настройка таргетированной рекламы в Instagram/Facebook, консультация по настройке рекламы и блокировкам от сертифицированного специалиста Анастасии Черепахиной.'
+
 export default {
   components: {
     ServicePageHero,
@@ -60,6 +62,30 @@ export default {
   async fetch({ store }) {
     await store.dispatch('banners/fetchActiveBanners')
     await store.dispatch('reviews/load', { limit: 100 })
+  },
+
+  head() {
+    return {
+      title: 'Услуги',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          contents: description,
+        },
+        { property: 'og:description', content: description },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          contents: 'Настройка рекламы | Консультация'
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          contents: 'meta-image.png'
+        }
+      ],
+    }
   },
 
   mounted() {
