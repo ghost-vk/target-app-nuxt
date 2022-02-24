@@ -29,7 +29,7 @@
         </div>
         <!-- eslint-enable -->
         <client-only>
-          <div class='bg-gradient-to-t from-white to-transparent absolute bottom-0 left-0 w-full h-10'></div>
+          <div class='gradient absolute bottom-0 -translate-x-1/2 left-1/2 h-10'></div>
         </client-only>
       </div>
 
@@ -78,3 +78,12 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.gradient {
+  width: calc(100% + 30px);
+  background: -moz-linear-gradient(180deg, rgba(255,255,255,0.18531162464985995) 0%, rgba(255,255,255,1) 60%);
+  background: -webkit-linear-gradient(180deg, rgba(255,255,255,0.18531162464985995) 0%, rgba(255,255,255,1) 60%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.18531162464985995) 0%, rgba(255,255,255,1) 60%);
+}
+</style>

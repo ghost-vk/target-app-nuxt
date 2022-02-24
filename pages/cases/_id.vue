@@ -43,6 +43,7 @@
 
     <CasePageResults
       v-if="displayValues.case_stats"
+      class="mb-16"
       :stats="displayValues.case_stats"
     />
 
@@ -54,14 +55,27 @@
           :data-src="displayValues.thumbnail"
           alt=""
         />
+
+        <noscript inline-template>
+          <img
+            class="mx-auto rounded"
+            :src="displayValues.thumbnail"
+            alt=""
+          />
+        </noscript>
       </div>
     </div>
 
     <!-- eslint-disable -->
+<!--    <div-->
+<!--      class="max-w-screen-sm mx-auto text-base md:text-lg mb-10"-->
+<!--      v-html="displayValues.content"-->
+<!--    >-->
     <div
-      class="max-w-screen-sm mx-auto text-base md:text-lg mb-10"
+      class="max-w-screen-sm mx-auto prose mb-10"
       v-html="displayValues.content"
-    ></div>
+    >
+    </div>
     <!-- eslint-enable -->
 
     <div class="max-w-screen-sm mx-auto">

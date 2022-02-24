@@ -13,8 +13,8 @@
           />
         </nuxt-link>
 
-        <nuxt-link to="/education">
-          <app-section-hero-button title="Обучение" color="purple" />
+        <nuxt-link to="/cases">
+          <app-section-hero-button title="Кейсы" color="purple" />
         </nuxt-link>
       </div>
     </app-section-hero>
@@ -64,7 +64,7 @@
             >
               <template #icon>
                 <outline-badge-check-icon
-                  class="w-12 h-12 md:w-16 md:h-16 text-purple-200 absolute -left-2 -top-4"
+                  class="w-12 h-12 md:w-16 md:h-16 text-violet-200 absolute -left-2 -top-4"
                 />
               </template>
             </AppFeatureWithIcon>
@@ -78,7 +78,7 @@
             >
               <template #icon>
                 <outline-fire-icon
-                  class="w-12 h-12 md:w-16 md:h-16 text-purple-200 absolute -left-2 -top-4"
+                  class="w-12 h-12 md:w-16 md:h-16 text-violet-200 absolute -left-2 -top-4"
                 />
               </template>
             </AppFeatureWithIcon>
@@ -92,7 +92,7 @@
             >
               <template #icon>
                 <outline-x-icon
-                  class="w-12 h-12 md:w-16 md:h-16 text-purple-200 absolute -left-2 -top-4"
+                  class="w-12 h-12 md:w-16 md:h-16 text-violet-200 absolute -left-2 -top-4"
                 />
               </template>
             </AppFeatureWithIcon>
@@ -106,7 +106,7 @@
             >
               <template #icon>
                 <outline-sparkles-icon
-                  class="w-12 h-12 md:w-16 md:h-16 text-purple-200 absolute -left-2 -top-4"
+                  class="w-12 h-12 md:w-16 md:h-16 text-violet-200 absolute -left-2 -top-4"
                 />
               </template>
             </AppFeatureWithIcon>
@@ -171,13 +171,15 @@
           <app-heading-third title="Кейсы" class="mb-2 sm:mb-5" />
         </div>
         <div>
-          <div
-            class="flex items-center mb-6 hover:text-purple-500 transition-colors cursor-pointer mx-auto max-w-max"
-            @click="$router.push('/cases')"
-          >
-            <span class="text-lg font-semibold">Посмотреть все</span>
-            <outline-chevron-right-icon class="ml-2 h-5 w-5" />
-          </div>
+          <nuxt-link to="/cases">
+            <div
+              class="flex items-center mb-6 hover:text-violet-500 transition-colors cursor-pointer mx-auto max-w-max"
+            >
+              <span class="text-lg font-semibold">Посмотреть все</span>
+              <outline-chevron-right-icon class="ml-2 h-5 w-5" />
+            </div>
+          </nuxt-link>
+
           <CasesSlider />
         </div>
       </div>
@@ -197,7 +199,8 @@ import CasesSlider from '@/components/CasesSlider'
 import ReviewsSection from '@/components/ReviewsSection'
 import ModalLidForm from '@/components/ModalLidForm'
 
-const description = 'Ищете таргетолога для настройки рекламы в Instagram/Facebook? Я выстрою оптимальную рекламную кампанию для вашего бизнеса и запущу таргетированную рекламу.'
+const description =
+  'Ищете таргетолога для настройки рекламы в Instagram/Facebook? Я выстрою оптимальную рекламную кампанию для вашего бизнеса и запущу таргетированную рекламу.'
 
 export default {
   components: {
@@ -244,19 +247,19 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          contents: description
+          contents: description,
         },
         { property: 'og:description', content: description },
         {
           hid: 'og:title',
           property: 'og:title',
-          contents: 'Таргетированная реклама | Отзывы | Цены | Обучение'
+          contents: 'Таргетированная реклама | Отзывы | Цены | Обучение',
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          contents: '/meta-image.png'
-        }
+          contents: '/meta-image.png',
+        },
       ],
     }
   },

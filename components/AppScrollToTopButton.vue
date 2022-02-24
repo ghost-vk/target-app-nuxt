@@ -14,7 +14,7 @@
       class="fixed h-10 w-10 z-20 right-5 opacity-50 md:opacity-100 md:right-20 bottom-24"
     >
       <div
-        class="w-full h-full rounded-full shadow bg-purple-300 text-white flex items-center justify-center"
+        class="w-full h-full rounded-full shadow bg-violet-300 text-white flex items-center justify-center"
       >
         <outline-chevron-up-icon class="w-6 h-6" />
       </div>

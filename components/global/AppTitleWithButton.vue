@@ -9,7 +9,7 @@
     <transition name="bounceLeft">
       <section v-show="isVisible">
         <div
-          class="flex flex-wrap justify-between items-center px-2 lg:px-24 py-3 bg-gradient-to-r from-purple-400 to-purple-300 rounded-2xl md:py-5 shadow"
+          class="flex flex-wrap justify-between items-center px-2 lg:px-24 py-3 bg-gradient-to-r from-violet-400 to-violet-300 rounded-2xl md:py-5 shadow"
           :class="isAlwaysColumn ? '' : 'lg:flex-nowrap'"
         >
           <div class="w-full" :class="isAlwaysColumn ? '' : 'lg:w-auto'">

@@ -8,8 +8,10 @@
         class="w-5 h-5 mr-1 flex-shrink-0 transform transition-transform"
         :class="isOpened ? 'rotate-180' : ''"
       />
+
       <span>Платные материалы</span>
     </div>
+
     <transition
       enter-active-class="duration-500"
       enter-from-class="max-h-0 opacity-0"
@@ -22,12 +24,13 @@
         v-show="isOpened"
         class="flex flex-col items-center justify-center text-center text-sm mt-2"
       >
-        <span
-          class="text-gray-300 hover:text-white transition-colors cursor-pointer"
-          @click="$router.push('/products/work-process-with-client')"
-        >
-          Чек-лист "Как работать с клиентами"
-        </span>
+        <nuxt-link to="/products/work-process-with-client">
+          <span
+            class="text-gray-300 hover:text-white transition-colors cursor-pointer"
+          >
+            Чек-лист "Как работать с клиентами"
+          </span>
+        </nuxt-link>
       </div>
     </transition>
   </div>

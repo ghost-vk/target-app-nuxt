@@ -7,7 +7,7 @@
     leave-from-class="top-0 opacity-100"
     leave-to-class="-top-20 opacity-60"
   >
-    <header class="fixed top-0 w-screen bg-purple-400 z-30">
+    <header class="fixed top-0 w-screen bg-purple-main z-30">
       <div
         class="container flex py-2 lg:py-5 text-white justify-between lg:justify-start"
       >

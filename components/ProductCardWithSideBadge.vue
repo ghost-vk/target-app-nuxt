@@ -18,7 +18,7 @@
       :lazy-background="bg ? bg : ''"
     >
       <div
-        class="absolute top-0 left-0 right-0 bottom-0 bg-purple-200 rounded-3xl opacity-60 transition-opacity z-10"
+        class="absolute top-0 left-0 right-0 bottom-0 bg-violet-200 rounded-3xl opacity-60 transition-opacity z-10"
         :class="bg ? 'opacity-60' : 'opacity-100'"
       ></div>
 

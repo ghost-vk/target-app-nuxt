@@ -1,6 +1,5 @@
 module.exports = {
-  purge: ['./src/**/*.{vue,js}'],
-  darkMode: false,
+  content: ['./src/**/*.{vue,js}'],
   theme: {
     container: {
       center: true,
@@ -14,12 +13,17 @@ module.exports = {
       minHeight: {
         '3/4': '75%',
       },
+      colors: {
+        'purple-main': '#A88BFA'
+      }
     },
   },
-  variants: {
-    extend: {
-      blur: ['hover', 'group-hover'],
-    },
-  },
-  plugins: [],
+  // variants: {
+  //   extend: {
+  //     blur: ['hover', 'group-hover'],
+  //   },
+  // },
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }

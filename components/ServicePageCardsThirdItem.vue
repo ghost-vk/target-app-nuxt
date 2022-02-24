@@ -11,7 +11,7 @@
   >
     <template #scrollable-list>
       <ul
-        class="list-disc list-inside leading-relaxed text-gray-500 pb-6 text-xs sm:text-sm text-left"
+        class="pl-0.5 list-disc list-inside leading-relaxed text-gray-500 pb-6 text-xs sm:text-sm text-left"
       >
         <li v-for="item in listItems" :key="item" class="mb-1 md:mb-2">{{ item }}</li>
       </ul>

@@ -25,8 +25,9 @@
             Мои кейсы
           </nuxt-link>
 
-          <a href='/static/docs/privacy.html' target="_blank" class="mb-3">Политика конфиденциальности</a>
-          <a href='/static/docs/user-agreement.html' target="_blank">Пользовательское соглашение</a>
+          <nuxt-link to="/docs/privacy" class="mb-3">Политика конфиденциальности</nuxt-link>
+
+          <nuxt-link to="/docs/user-agreement">Пользовательское соглашение</nuxt-link>
         </div>
 
         <div

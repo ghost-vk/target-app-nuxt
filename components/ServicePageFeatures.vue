@@ -1,4 +1,4 @@
-<template>
+violet<template>
   <div class="container">
     <client-only>
       <intersect @enter="animateFeatures">
@@ -15,7 +15,7 @@
         >
           <template #icon>
             <outline-badge-check-icon
-              class="w-12 h-12 md:w-16 md:h-16 text-purple-200 absolute -left-2 -top-4"
+              class="w-12 h-12 md:w-16 md:h-16 text-violet-200 absolute -left-2 -top-4"
             />
           </template>
         </AppFeatureWithIcon>
@@ -29,7 +29,7 @@
         >
           <template #icon>
             <outline-user-group-icon
-              class="w-12 h-12 md:w-16 md:h-16 text-purple-200 absolute -left-2 -top-4"
+              class="w-12 h-12 md:w-16 md:h-16 text-violet-200 absolute -left-2 -top-4"
             />
           </template>
         </AppFeatureWithIcon>
@@ -43,7 +43,7 @@
         >
           <template #icon>
             <outline-cash-icon
-              class="w-12 h-12 md:w-16 md:h-16 text-purple-200 absolute -left-2 -top-4"
+              class="w-12 h-12 md:w-16 md:h-16 text-violet-200 absolute -left-2 -top-4"
             />
           </template>
         </AppFeatureWithIcon>
@@ -57,7 +57,7 @@
         >
           <template #icon>
             <outline-academic-cap-icon
-              class="w-12 h-12 md:w-16 md:h-16 text-purple-200 absolute -left-2 -top-4"
+              class="w-12 h-12 md:w-16 md:h-16 text-violet-200 absolute -left-2 -top-4"
             />
           </template>
         </AppFeatureWithIcon>

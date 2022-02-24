@@ -16,7 +16,7 @@
           class="mb-3"
           :model-value="fieldValues.phone"
           :country-code="fieldValues.countryCode"
-          :placeholder="'901 983 31 33'"
+          :placeholder="'+7 999 888 77 66'"
           :error="fieldErrors.phone"
           @update:model-value="updatePhone"
           @update-country="updateCountry"

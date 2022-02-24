@@ -1,39 +1,41 @@
 <template>
-  <div
-    class="case select-none w-full rounded-xl overflow-hidden shadow-2xl cursor-pointer"
-    :class="bannerClass"
-    @click="goToUrl(banner.url)"
-    @touchstart="toSmall"
-    @touchend="backToNormal"
-    @touchleave="backToNormal"
-    @touchcancel="backToNormal"
-  >
-    <div v-aspect-ratio="aspectRatio" class="relative bg-purple-100">
-      <picture>
-        <source
-          v-for="point in screenPoints"
-          :key="point"
-          v-lazy-load
-          :media="`(max-width: ${point}px)`"
-          :data-srcset="$config.SERVER_PATH + banner.srcset[point]"
-        />
-        <img
-          v-lazy-load
-          :data-src="$config.SERVER_PATH + banner.src"
-          alt=""
-          class="img absolute top-0 left-0"
-        />
-      </picture>
+  <a :href='banner.url' @click.prevent>
+    <div
+      class="case select-none w-full rounded-xl overflow-hidden shadow-2xl cursor-pointer"
+      :class="bannerClass"
+      @click="goToUrl(banner.url)"
+      @touchstart="toSmall"
+      @touchend="backToNormal"
+      @touchleave="backToNormal"
+      @touchcancel="backToNormal"
+    >
+      <div v-aspect-ratio="aspectRatio" class="relative bg-purple-100">
+        <picture>
+          <source
+            v-for="point in screenPoints"
+            :key="point"
+            v-lazy-load
+            :media="`(max-width: ${point}px)`"
+            :data-srcset="$config.SERVER_PATH + banner.srcset[point]"
+          />
+          <img
+            v-lazy-load
+            class="img absolute top-0 left-0"
+            :data-src="$config.SERVER_PATH + banner.src"
+            alt=""
+          />
+        </picture>
 
-      <noscript inline-template>
-        <img
-          :src="$config.SERVER_PATH + banner.src"
-          alt=""
-          class="img absolute top-0 left-0"
-        />
-      </noscript>
+        <noscript inline-template>
+          <img
+            class="img absolute top-0 left-0"
+            :src="$config.SERVER_PATH + banner.src"
+            alt=""
+          />
+        </noscript>
+      </div>
     </div>
-  </div>
+  </a>
 </template>
 
 <script>
@@ -46,12 +48,12 @@ export default {
       default() {
         return {}
       },
-    }
+    },
   },
 
   data: () => ({
     bannerClass: '',
-    aspectRatio: screen < 460 ? '43:25' : screen < 1024 ? '98:57' : '144:37'
+    aspectRatio: screen < 460 ? '43:25' : screen < 1024 ? '98:57' : '144:37',
   }),
 
   computed: {

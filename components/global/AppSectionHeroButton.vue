@@ -46,8 +46,8 @@ export default {
 
     defaultClassList =
       this.color === 'purple'
-        ? defaultClassList + 'bg-purple-500'
-        : defaultClassList + 'bg-gray-100 text-purple-500'
+        ? defaultClassList + 'bg-violet-500'
+        : defaultClassList + 'bg-gray-100 text-violet-500'
 
     return {
       animated: false,

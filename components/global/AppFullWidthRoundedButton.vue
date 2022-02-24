@@ -5,8 +5,8 @@
       focus:outline-none
       p-3
       text-center
-      bg-purple-400
-      hover:bg-purple-300
+      bg-violet-400
+      hover:bg-violet-300
       transition-colors
       rounded-full
       shadow

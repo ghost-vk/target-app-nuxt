@@ -2,17 +2,18 @@
   <section>
     <div class="md:container">
       <div
-        class="flex flex-wrap sm:flex-nowrap items-center bg-purple-100 sm:p-6 md:p-12 lg:p-20 md:rounded"
+        class="flex flex-wrap sm:flex-nowrap items-center bg-violet-100 sm:p-6 md:p-12 lg:p-20 md:rounded"
       >
         <div
           class="w-full sm:w-1/2 flex flex-col justify-center max-h-96 sm:max-h-full overflow-hidden sm:pr-10 mb-5 md:mb-0"
         >
           <div class='relative w-full'>
-            <div v-aspect-ratio="'2:3'"></div>
+            <div v-aspect-ratio="'2:3'" class="max-h-96 sm:max-h-full"></div>
 
             <img
               v-lazy-load
-              class="absolute top-0 left-0 rounded"
+              class="absolute rounded"
+              :class="$device.isMobile ? 'transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2' : 'top-0 left-0'"
               data-src="/product-author.jpg"
               alt="Таргетолог Анастасия Черепахина"
             />

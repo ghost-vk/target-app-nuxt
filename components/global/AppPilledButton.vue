@@ -36,7 +36,7 @@ export default {
 
   computed: {
     classList() {
-      return this.isSelected ? 'bg-green-100 border-green-300 border-2' : 'bg-purple-100 border-purple-100'
+      return this.isSelected ? 'bg-green-100 border-green-300 border-2' : 'bg-violet-100 border-violet-100'
     },
   },
 }

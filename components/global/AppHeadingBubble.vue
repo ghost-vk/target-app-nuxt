@@ -14,7 +14,7 @@
           <div
             v-for="i in 15"
             :key="i"
-            class="w-3 h-3 rounded-full bg-purple-200"
+            class="w-3 h-3 rounded-full bg-violet-200"
           ></div>
         </div>
       </transition>
@@ -38,7 +38,7 @@ const defaultTitleClasses = 'relative text-2xl lg:text-5xl font-bold z-20'
 const rightTitlePositionClasses = defaultTitleClasses + ' text-right ml-auto'
 
 const defaultBubbleClasses =
-  'absolute -top-16 w-40 h-40 bg-purple-200 rounded-full '
+  'absolute -top-16 w-40 h-40 bg-violet-200 rounded-full '
 const rightBubbleClasses = '-right-16'
 const leftBubbleClasses = '-left-16'
 

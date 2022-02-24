@@ -7,14 +7,14 @@
         <h5 class="text-lg xl:text-xl font-bold text-gray-600">{{ title }}</h5>
       </div>
 
-      <div v-if="$slots['scrollable-list']" class='relative'>
+      <div v-if="$slots['scrollable-list']" class='relative w-full px-1'>
         <div
           class="w-full pt-1.5 md:py-3 mb-3 h-40 md:h-60 overflow-y-scroll relative scroll-list"
         >
           <slot name="scrollable-list" />
         </div>
         <client-only>
-          <div class='bg-gradient-to-t from-white to-transparent absolute bottom-0 left-0 w-full h-16'></div>
+          <div class='gradient absolute bottom-0 -translate-x-1/2 left-1/2 h-16'></div>
         </client-only>
       </div>
 
@@ -48,7 +48,7 @@
 
         <button
           type="button"
-          class="shine w-full bg-purple-700 text-white shadow text-lg font-semibold rounded-lg px-5 py-2"
+          class="shine w-full bg-violet-700 text-white shadow text-lg font-semibold rounded-lg px-5 py-2"
           :class="btnClass"
           @click="$emit('button-click')"
         >
@@ -81,3 +81,12 @@ export default {
   }),
 }
 </script>
+
+<style scoped>
+.gradient {
+  width: calc(100% + 30px);
+  background: -moz-linear-gradient(180deg, rgba(255,255,255,0.18531162464985995) 0%, rgba(255,255,255,1) 60%);
+  background: -webkit-linear-gradient(180deg, rgba(255,255,255,0.18531162464985995) 0%, rgba(255,255,255,1) 60%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.18531162464985995) 0%, rgba(255,255,255,1) 60%);
+}
+</style>
