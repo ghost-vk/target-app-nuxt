@@ -1,4 +1,3 @@
-import fs from 'fs'
 import { directive } from 'v-aspect-ratio/dist/v-aspect-ratio.ssr.esm'
 
 export default {
