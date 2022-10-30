@@ -1,28 +1,8 @@
 import fs from 'fs'
 import { directive } from 'v-aspect-ratio/dist/v-aspect-ratio.ssr.esm'
 
-const server =
-  process.env.NODE_ENV === 'production' && !process.env.LOCAL
-    ? {
-        https: {
-          key: fs.readFileSync(
-            '/etc/letsencrypt/live/anastasi-target.ru/privkey.pem'
-          ),
-          cert: fs.readFileSync(
-            '/etc/letsencrypt/live/anastasi-target.ru/cert.pem'
-          ),
-          ca: fs.readFileSync(
-            '/etc/letsencrypt/live/anastasi-target.ru/chain.pem'
-          ),
-        },
-        host: 'anastasi-target.ru'
-      }
-    : {}
-
-server.port = process.env.PORT
-
 export default {
-  server: server,
+  server: { port: process.env.PORT },
 
   // target: 'static',
 
