@@ -53,7 +53,7 @@ export default {
       animated: false,
       isVisible: !process.client,
       classList: defaultClassList,
-      defaultClassList: defaultClassList,
+      defaultClassList,
     }
   },
 
