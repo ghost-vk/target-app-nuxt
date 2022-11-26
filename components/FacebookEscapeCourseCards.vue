@@ -2,7 +2,7 @@
   <section class="overflow-x-hidden pt-16 pb-5 mb-12">
     <div class="container relative">
       <div id="at_price" class="relative">
-        <app-heading-bubble title="Оставьте заявку" class="mb-14 md:mb-28" />
+        <app-heading-bubble title="Оставьте заявку" class="mb-20 md:mb-28" />
 
         <div v-if="$device.isDesktop" class="lg:flex flex-wrap justify-center">
           <FacebookEscapeCourseCardsFirst />

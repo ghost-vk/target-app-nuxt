@@ -20,14 +20,14 @@
 
       <div
         v-if="$slots['additional-items']"
-        class="hidden xl:flex lg:h-32 w-full py-1.5 md:py-3 font-light text-sm flex-col justify-center"
+        class="flex lg:h-32 w-full py-1.5 md:py-3 font-light text-sm flex-col justify-center"
       >
         <slot name="additional-items" />
       </div>
 
       <div
         v-if="$slots['highlighted-items']"
-        class="hidden xl:flex lg:h-20 py-3 w-full px-1.5 items-center text-left"
+        class="flex lg:h-20 py-3 w-full px-1.5 items-center text-left"
       >
         <slot name="highlighted-items" />
       </div>

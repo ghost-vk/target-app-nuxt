@@ -26,7 +26,7 @@
       </div>
     </app-section-hero>
 
-    <div>
+    <div class="overflow-hidden pt-20">
       <div class="container">
         <app-heading-bubble
           class="mb-20 lg:mb-28"
