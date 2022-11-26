@@ -36,7 +36,7 @@
           >
             <li
               v-for="text in about"
-              :key="text.slice(0, 10)"
+              :key="text.slice(0, 10) + Math.random()"
               class="mb-3 md:mb-6"
             >
               {{ text }}
@@ -278,9 +278,6 @@ export default {
   },
 
   mounted() {
-    this.$fbq('init')(123456)
-    this.$gtag('init')(123456)
-
     const source = this.$route.query.source
       ? this.$route.query.source
       : 'Инстраграм Директ'

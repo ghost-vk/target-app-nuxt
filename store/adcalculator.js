@@ -172,9 +172,6 @@ export const actions = {
       if (getters.calcError) {
         return
       }
-
-      this.$gtag('query')('event', 'calc_ad_budget')
-      this.$fbq('event')('CalcAdBudget')
     } catch (err) {
       // Calculation
       if (getters.calcError) {

@@ -82,13 +82,6 @@ export default {
         return
       }
 
-      this.$gtag('query')('click_banner', {
-        event_category: 'directing',
-        event_label: `Переход: ${this.banner.url}`,
-      })
-
-      this.$fbq('event')('ClickBanner', { route: this.banner.url })
-
       if (url.includes('https://anastasi-target.ru')) {
         return this.$router.push(url.replace('https://anastasi-target.ru', ''))
       }

@@ -123,15 +123,6 @@ export const actions = {
 
     const source = typeof options === 'string' ? options : options.source
     commit(UPDATE_LID_SOURCE, cutStringByLength(source, 255))
-
-    this.$fbq('event')('ViewLeadForm', {
-      source: options.source || 'Without source',
-    })
-
-    this.$gtag('query')('event', 'view_lead_form', {
-      event_label: source,
-      event_category: 'leads',
-    })
   },
 
   hideModal({ commit }) {
@@ -186,11 +177,6 @@ export const actions = {
         ],
         { root: true }
       )
-
-      this.$fbq('event')('Lead', {
-        content_name: getters.fieldValues.source || 'Without source',
-      })
-      this.$gtag('query')('event', 'generate_lead')
 
       dispatch('lead/resetValues', {}, { root: true })
 

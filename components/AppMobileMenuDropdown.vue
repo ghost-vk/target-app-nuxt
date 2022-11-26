@@ -22,13 +22,24 @@
     >
       <div
         v-show="isOpened"
-        class="flex flex-col items-center justify-center text-center text-sm mt-2"
+        class="
+          flex flex-col
+          items-center
+          justify-center
+          text-center text-sm
+          mt-2
+        "
       >
-        <nuxt-link to="/products/work-process-with-client">
+        <nuxt-link to="/products/facebook-escape-to-foreign-market">
           <span
-            class="text-gray-300 hover:text-white transition-colors cursor-pointer"
+            class="
+              text-gray-300
+              hover:text-white
+              transition-colors
+              cursor-pointer
+            "
           >
-            Чек-лист "Как работать с клиентами"
+            Facebook 2.0
           </span>
         </nuxt-link>
       </div>

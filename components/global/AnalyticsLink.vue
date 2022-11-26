@@ -27,13 +27,6 @@ export default {
 
   methods: {
     onClick() {
-      this.$gtag('query')('go_away', {
-        event_category: 'directing',
-        event_label: `Переход: ${this.route}`,
-      })
-
-      this.$fbq('event')('GoAway', { route: `Переход: ${this.route}` })
-
       setTimeout(() => {
         window.open(this.href, this.target)
       }, 300)

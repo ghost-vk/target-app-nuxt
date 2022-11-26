@@ -2,18 +2,42 @@
   <section>
     <div class="md:container">
       <div
-        class="flex flex-wrap sm:flex-nowrap items-center bg-violet-100 sm:p-6 md:p-12 lg:p-20 md:rounded"
+        class="
+          flex flex-wrap
+          sm:flex-nowrap
+          items-center
+          bg-violet-100
+          sm:p-6
+          md:p-12
+          lg:p-20
+          md:rounded
+        "
       >
         <div
-          class="w-full sm:w-1/2 flex flex-col justify-center max-h-96 sm:max-h-full overflow-hidden sm:pr-10 mb-5 md:mb-0"
+          class="
+            w-full
+            sm:w-1/2
+            flex flex-col
+            justify-center
+            max-h-96
+            sm:max-h-full
+            overflow-hidden
+            sm:pr-10
+            mb-5
+            md:mb-0
+          "
         >
-          <div class='relative w-full'>
+          <div class="relative w-full">
             <div v-aspect-ratio="'2:3'" class="max-h-96 sm:max-h-full"></div>
 
             <img
               v-lazy-load
               class="absolute rounded"
-              :class="$device.isMobile ? 'transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2' : 'top-0 left-0'"
+              :class="
+                $device.isMobile
+                  ? 'transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
+                  : 'top-0 left-0'
+              "
               data-src="/product-author.jpg"
               alt="Таргетолог Анастасия Черепахина"
             />
@@ -56,12 +80,11 @@
 export default {
   data: () => ({
     features: [
-      'действующий таргетолог',
-      '2 года опыта',
-      'опыт более чем в 20 нишах',
-      'наставник для начинающих таргетологов',
-      'была куратором на курсе',
-      'личный рекорд CTR 5,26%',
+      '90% моих учеников говорят, что мои обучения превосходят их ожидания',
+      'Работаю с постоянными клиентами из Дубая, Франции и Беларуси',
+      'Более 3-х лет в сфере таргетинга',
+      'Сотрудничала с более 40+ нишами',
+      'Открутила более 4-х млн. рекламного бюджета',
     ],
   }),
 }

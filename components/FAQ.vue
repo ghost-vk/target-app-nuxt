@@ -4,7 +4,10 @@
       <app-heading-third title="Отвечаю на ваши вопросы" />
 
       <div class="max-w-screen-sm mx-auto mb-6">
-        <FAQCategoriesGroupButtons class="mb-2" />
+        <FAQCategoriesGroupButtons
+          v-if="currentCategory !== 'course-facebook-2'"
+          class="mb-2"
+        />
 
         <transition name="fade">
           <div
@@ -180,6 +183,57 @@
                 ежедневный анализ и предоставляет отчет клиенту, спрашивает
                 клиента о дневных результатах, в зависимости от этого
                 корректируется ход рекламной кампании.</template
+              >
+            </FAQItem>
+          </div>
+        </transition>
+
+        <transition name="fade">
+          <div
+            v-show="currentCategory === 'course-facebook-2'"
+            style="animation-duration: 0.2s"
+          >
+            <FAQItem>
+              <template #title>На какой период доступ к урокам?</template>
+
+              <template #body>
+                Доступ к урокам на 3 месяца. За это время можно не только успеть
+                изучить уроки, но и пересмотреть их.
+              </template>
+            </FAQItem>
+
+            <FAQItem>
+              <template #title>Есть ли обратная связь?</template>
+
+              <template #body>
+                Да, на тарифе Optimal обратная связь 1 месяц + участие в
+                мастермайнде.
+              </template>
+            </FAQItem>
+
+            <FAQItem>
+              <template #title>Сложно ли разобраться самому?</template>
+
+              <template #body
+                >Да, на тарифе Optimal обратная связь 1 месяц + участие в
+                мастермайнде.</template
+              >
+            </FAQItem>
+
+            <FAQItem>
+              <template #title>Можно ли сменить тариф?</template>
+
+              <template #body
+                >Да, это возможно. Нужно лишь написать в техотдел @ник</template
+              >
+            </FAQItem>
+
+            <FAQItem>
+              <template #title>Долго ли длятся уроки?</template>
+
+              <template #body
+                >Уроки короткие от 2 - 10 минут, чтобы вы могли усвоить новую
+                информацию и применить в действии.</template
               >
             </FAQItem>
           </div>

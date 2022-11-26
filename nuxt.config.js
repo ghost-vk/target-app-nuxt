@@ -36,8 +36,6 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/intersection-polyfill.js', mode: 'client' },
-    { src: '~/plugins/facebook-pixel', mode: 'client' },
-    { src: '~/plugins/gtag', mode: 'client' },
     { src: '~/plugins/v-tooltip' },
     { src: '~/plugins/vue2-smooth-scroll', mode: 'client' },
     { src: '~/plugins/vue-awesome-swiper', mode: 'client' },

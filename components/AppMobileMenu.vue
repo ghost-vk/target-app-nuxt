@@ -27,16 +27,9 @@
 
           <AppMobileMenuDropdown />
 
-          <nuxt-link to="/cases" exact-active-class="font-bold" class="mb-4">
+          <nuxt-link to="/cases" exact-active-class="font-bold">
             Мои кейсы
           </nuxt-link>
-
-          <div class="mb-4 flex justify-center items-center">
-            <span>Блог</span>
-            <span class="ml-1 px-2 py-1 bg-purple-50 text-gray-600 rounded-full text-xs">
-              скоро
-            </span>
-          </div>
         </div>
 
         <AppTelegramChatPill class="mb-5" />

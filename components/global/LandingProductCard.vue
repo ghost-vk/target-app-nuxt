@@ -48,11 +48,6 @@ export default {
 
   methods: {
     onButtonClick() {
-      if (this.$store.getters['product-landing/isProductBuyThroughBot']) {
-        this.$store.dispatch('product-landing/showModal')
-        return
-      }
-
       this.$store.dispatch('lead/showDialog', {
         shouldCallback: true,
         source: `Заявка на покупку '${this.title}'`,

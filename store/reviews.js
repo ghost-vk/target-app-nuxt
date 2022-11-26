@@ -16,6 +16,10 @@ export const state = () => ({
       title: 'Все отзывы',
     },
     {
+      value: 'courses',
+      title: 'Курсы',
+    },
+    {
       value: 'consultation',
       title: 'Консультации',
     },
@@ -76,6 +80,8 @@ export const actions = {
 
   updateActiveCategory({ commit }, val) {
     const availableCategories = [
+      'all',
+      'courses',
       'target-setup',
       'consultation',
       'education',

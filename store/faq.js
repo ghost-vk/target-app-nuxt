@@ -12,7 +12,7 @@ export const mutations = {
 
 export const actions = {
   changeCurrentCategory({ commit }, category) {
-    if (['target-setup', 'consultation', 'telegram-chat', 'mentor'].includes(category)) {
+    if (['target-setup', 'consultation', 'telegram-chat', 'mentor', 'course-facebook-2'].includes(category)) {
       commit(UPDATE_ACTIVE_CATEGORY, category)
       return
     }
