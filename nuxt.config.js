@@ -1,7 +1,7 @@
 import { directive } from 'v-aspect-ratio/dist/v-aspect-ratio.ssr.esm'
 
 export default {
-  server: { port: process.env.PORT },
+  server: { host: process.env.HOST, port: process.env.PORT },
 
   // target: 'static',
 
@@ -113,7 +113,8 @@ export default {
   },
 
   publicRuntimeConfig: {
-    SERVER_PATH: process.env.SERVER_PATH,
     screen: process.client ? window.innerWidth : 1025,
+    API_URL: process.env.API_URL,
+    CDN_URL: process.env.CDN_URL
   },
 }

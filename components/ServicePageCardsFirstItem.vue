@@ -53,7 +53,7 @@
 
     <template #last-content>
       <div class="text-2xl font-bold flex items-center justify-center">
-        20 000 р.
+        30 000 р.
         <outline-question-mark-circle-icon
           v-tooltip="
             'сумма расчитывается индивидуально при рекламном бюджете от 50 000 ₽/мес'

@@ -12,4 +12,8 @@ module.exports = {
   plugins: [],
   // add your custom rules here
   rules: {},
+  globals: {
+    API_URL: 'readonly',
+    CDN_URL: 'readonly',
+  }
 }

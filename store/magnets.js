@@ -34,14 +34,14 @@ export const actions = {
   async loadAll({ commit }) {
     commit(UPDATE_MAGNETS_STATUS, { name: 'loadingMagnets', val: true })
     try {
-      const data = await this.$axios.$get(
-        `${this.$config.SERVER_PATH}/api/magnets`
+      let data = await this.$axios.$get(
+        `${this.$config.API_URL}/magnets`
       )
 
-      Array.isArray(data)
+      data = Array.isArray(data)
         ? data.map((m) => {
             m.link = ''
-            m.image = m.image ? SERVER_PATH + m.image : ''
+            m.image = m.image ? CDN_URL + m.image : ''
 
             return m
           })
@@ -71,7 +71,7 @@ export const actions = {
   async fetchMagnetLink({ commit, state }) {
     try {
       const data = await this.$axios.$get(
-        `${this.$config.SERVER_PATH}/api/magnets/${state.currentID}/?link=1`
+        `${this.$config.CDN_URL}/magnets/${state.currentID}/?link=1`
       )
       commit(UPDATE_MAGNETS_REDIRECT_LINK, data.link)
       return data
@@ -107,7 +107,7 @@ export const actions = {
 }
 
 export const getters = {
-  linkToRedirect: s => s.linkToRedirect,
-  magnets: s => s.magnets,
-  status: s => s.status,
+  linkToRedirect: (s) => s.linkToRedirect,
+  magnets: (s) => s.magnets,
+  status: (s) => s.status,
 }

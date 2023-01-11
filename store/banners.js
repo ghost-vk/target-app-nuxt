@@ -22,7 +22,7 @@ export const actions = {
       }
 
       const response = await this.$axios.$get(
-        `${this.$config.SERVER_PATH}/api/banners?options=active`
+        `${this.$config.API_URL}/banners?options=active`
       )
 
       if (!Array.isArray(response)) {

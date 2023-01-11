@@ -33,11 +33,11 @@ export const actions = {
 
     try {
       const data = await this.$axios.$get(
-        `${this.$config.SERVER_PATH}/api/posts/${id}`
+        `${this.$config.API_URL}/posts/${id}`
       )
 
       data.thumbnail = data.thumbnail
-        ? this.$config.SERVER_PATH + data.thumbnail
+        ? this.$config.CDN_URL + data.thumbnail
         : ''
 
       data.case_stats = data.case_stats ? JSON.parse(data.case_stats) : null
@@ -48,7 +48,7 @@ export const actions = {
         data.case_stats.splice(1, data.case_stats.length - 2)
       }
 
-      data.content = postContentFilter(data.content, this.$config.SERVER_PATH)
+      data.content = postContentFilter(data.content, this.$config.CDN_URL)
 
       debug('Fetched post data: %O', data)
 

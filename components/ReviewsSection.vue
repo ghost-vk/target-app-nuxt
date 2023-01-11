@@ -26,7 +26,7 @@
               class="swiper-slide px-2 lg:px-10 flex justify-center"
             >
               <ReviewsSectionCard
-                :thumbnail="$config.SERVER_PATH + review.image"
+                :thumbnail="$config.CDN_URL + review.image"
                 :name="review.full_name"
                 :vocation="review.profession"
                 :instagram="review.link"

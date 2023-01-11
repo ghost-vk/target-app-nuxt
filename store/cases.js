@@ -27,7 +27,7 @@ export const actions = {
       const queryLimit = Number(limit) > 0 ? `&limit=${limit}` : ''
 
       const response = await this.$axios.$get(
-        `${this.$config.SERVER_PATH}/api/posts/?category=1&fullmode=0${queryLimit}`
+        `${this.$config.API_URL}/posts/?category=1&fullmode=0${queryLimit}`
       )
       commit(UPDATE_CASES, response.data)
 

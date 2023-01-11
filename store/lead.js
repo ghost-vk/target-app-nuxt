@@ -140,7 +140,7 @@ export const actions = {
       }
 
       await this.$axios.post(
-        `${this.$config.SERVER_PATH}/api/lid`,
+        `${this.$config.API_URL}/lid`,
         getters.fieldValues
       )
 

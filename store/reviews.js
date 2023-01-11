@@ -64,7 +64,7 @@ export const actions = {
 
       const limit = options.limit ? `limit=${options.limit}&` : ''
       let data = await this.$axios.$get(
-        `${this.$config.SERVER_PATH}/api/reviews/?${limit}ordered=1`
+        `${this.$config.API_URL}/reviews/?${limit}ordered=1`
       )
 
       data = Array.isArray(data) && data.length > 0 ? data : []

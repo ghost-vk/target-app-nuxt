@@ -4,7 +4,7 @@
       <div
         v-aspect-ratio="'1:1'"
         class="mb-5 bg-center bg-no-repeat bg-cover bg-gray-200 relative group cursor-pointer rounded"
-        :lazy-background="thumbnail ? $config.SERVER_PATH + thumbnail : ''"
+        :lazy-background="thumbnail ? $config.CDN_URL + thumbnail : ''"
         @click="$router.push(`/cases/${id}`)"
         @mouseenter="toSmall"
         @mouseleave="backToNormal"

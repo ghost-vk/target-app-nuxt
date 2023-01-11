@@ -4,7 +4,7 @@
       <div
         v-lazy-load
         class="h-40 xl:h-60 mb-5 bg-center bg-no-repeat bg-cover bg-gray-200 relative flex justify-center items-center group cursor-pointer rounded"
-        :lazy-background="$config.SERVER_PATH + thumbnail"
+        :lazy-background="$config.CDN_URL + thumbnail"
       >
         <div
           class="rounded absolute top-0 left-0 right-0 bottom-0 opacity-0 transition-all group-hover:opacity-100 bg-gray-800 bg-opacity-60 hidden lg:block"

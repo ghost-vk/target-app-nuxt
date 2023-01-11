@@ -43,7 +43,7 @@
 
     <template #last-content>
       <div class="text-center">
-        <p class="text-2xl font-bold">3 500 р.</p>
+        <p class="text-2xl font-bold">7 000 р.</p>
       </div>
     </template>
   </AppSectionCard>

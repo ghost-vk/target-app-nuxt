@@ -1,7 +1,15 @@
 <template>
-  <a :href='banner.url' @click.prevent>
+  <a :href="banner.url" @click.prevent>
     <div
-      class="case select-none w-full rounded-xl overflow-hidden shadow-2xl cursor-pointer"
+      class="
+        case
+        select-none
+        w-full
+        rounded-xl
+        overflow-hidden
+        shadow-2xl
+        cursor-pointer
+      "
       :class="bannerClass"
       @click="goToUrl(banner.url)"
       @touchstart="toSmall"
@@ -16,12 +24,12 @@
             :key="point"
             v-lazy-load
             :media="`(max-width: ${point}px)`"
-            :data-srcset="$config.SERVER_PATH + banner.srcset[point]"
+            :data-srcset="$config.CDN_URL + banner.srcset[point]"
           />
           <img
             v-lazy-load
             class="img absolute top-0 left-0"
-            :data-src="$config.SERVER_PATH + banner.src"
+            :data-src="$config.CDN_URL + banner.src"
             alt=""
           />
         </picture>
@@ -29,7 +37,7 @@
         <noscript inline-template>
           <img
             class="img absolute top-0 left-0"
-            :src="$config.SERVER_PATH + banner.src"
+            :src="$config.CDN_URL + banner.src"
             alt=""
           />
         </noscript>
@@ -82,8 +90,13 @@ export default {
         return
       }
 
-      if (url.includes('https://anastasi-target.ru')) {
-        return this.$router.push(url.replace('https://anastasi-target.ru', ''))
+      const targetUrl = new URL(url)
+      const baseUrl = new URL(API_URL)
+
+      if (targetUrl.hostname === baseUrl.hostname) {
+        return this.$router.push(
+          url.replace(targetUrl.protocol + '//' + targetUrl.hostname, '')
+        )
       }
 
       window.location = url
